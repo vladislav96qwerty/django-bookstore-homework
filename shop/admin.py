@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.db.models import Count
 from .models import Book, Category
 
 
@@ -16,9 +17,13 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     inlines = [BookInline]
 
-    @admin.display(description="Количество книг")
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.annotate(_books_count=Count("books"))
+
+    @admin.display(description="Количество книг", ordering="_books_count")
     def books_count(self, obj):
-        return obj.books.count()
+        return obj._books_count
 
 
 @admin.register(Book)
