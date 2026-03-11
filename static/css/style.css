@@ -1,0 +1,26 @@
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.pagination .page-link {
+    color: #212529;
+}
+
+.pagination .active .page-link {
+    background-color: #212529;
+    border-color: #212529;
+    color: #fff;
+}
+
+.footer {
+    font-size: 0.9rem;
+}
