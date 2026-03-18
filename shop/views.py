@@ -1,8 +1,10 @@
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
 from .models import Book
 from .forms import BookForm
+
 
 class BookListView(ListView):
     model = Book
@@ -30,21 +32,27 @@ class BookDetailView(DetailView):
     template_name = 'shop/book_detail.html'
     context_object_name = 'book'
 
-class BookCreateView(CreateView):
+
+class BookCreateView(PermissionRequiredMixin, CreateView):
     model = Book
     form_class = BookForm
     template_name = 'shop/book_form.html'
     success_url = reverse_lazy('shop:book_list')
+    permission_required = "shop.add_book"
 
-class BookUpdateView(UpdateView):
+
+class BookUpdateView(PermissionRequiredMixin, UpdateView):
     model = Book
     form_class = BookForm
     template_name = 'shop/book_form.html'
+    permission_required = "shop.change_book"
     
     def get_success_url(self):
         return reverse_lazy('shop:book_detail', kwargs={'pk': self.object.pk})
 
-class BookDeleteView(DeleteView):
+
+class BookDeleteView(PermissionRequiredMixin, DeleteView):
     model = Book
     template_name = 'shop/book_confirm_delete.html'
     success_url = reverse_lazy('shop:book_list')
+    permission_required = "shop.delete_book"
