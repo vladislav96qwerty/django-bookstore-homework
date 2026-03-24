@@ -1,0 +1,430 @@
+[
+{
+  "model": "shop.category",
+  "pk": 1,
+  "fields": {
+    "name": "Programming",
+    "slug": "programming"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 2,
+  "fields": {
+    "name": "Fantasy",
+    "slug": "fantasy"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 3,
+  "fields": {
+    "name": "Fiction",
+    "slug": "fiction"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 4,
+  "fields": {
+    "name": "Technology",
+    "slug": "technology"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 5,
+  "fields": {
+    "name": "Science",
+    "slug": "science"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 6,
+  "fields": {
+    "name": "History",
+    "slug": "history"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 7,
+  "fields": {
+    "name": "Biography",
+    "slug": "biography"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 8,
+  "fields": {
+    "name": "Art",
+    "slug": "art"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "title": "Python Crash Course",
+    "author": "Eric Matthes",
+    "price": "650.00",
+    "description": "???????????? ???????? ? Python",
+    "stock": 5,
+    "created_at": "2026-02-23T17:56:20.434Z",
+    "updated_at": "2026-02-23T17:56:20.434Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "title": "Django for Beginners",
+    "author": "William S. Vincent",
+    "price": "720.00",
+    "description": "????? ?? Django ??? ??????????",
+    "stock": 3,
+    "created_at": "2026-02-23T17:56:20.445Z",
+    "updated_at": "2026-02-23T17:56:20.445Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 3,
+  "fields": {
+    "category": 2,
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "price": "399.99",
+    "description": "???????????? ???????",
+    "stock": 10,
+    "created_at": "2026-02-23T17:56:20.457Z",
+    "updated_at": "2026-02-23T17:56:20.457Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 4,
+  "fields": {
+    "category": 8,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "price": "50.28",
+    "description": "This is a sample description for 'The Great Gatsby' by F. Scott Fitzgerald.",
+    "stock": 31,
+    "created_at": "2026-03-11T19:24:45.915Z",
+    "updated_at": "2026-03-11T19:24:45.915Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 5,
+  "fields": {
+    "category": 6,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "price": "58.37",
+    "description": "This is a sample description for 'Clean Code' by Robert C. Martin.",
+    "stock": 29,
+    "created_at": "2026-03-11T19:24:45.944Z",
+    "updated_at": "2026-03-11T19:24:45.944Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 6,
+  "fields": {
+    "category": 7,
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "price": "60.93",
+    "description": "This is a sample description for 'Sapiens' by Yuval Noah Harari.",
+    "stock": 48,
+    "created_at": "2026-03-11T19:24:45.959Z",
+    "updated_at": "2026-03-11T19:24:45.959Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 7,
+  "fields": {
+    "category": 7,
+    "title": "Steve Jobs",
+    "author": "Walter Isaacson",
+    "price": "53.89",
+    "description": "This is a sample description for 'Steve Jobs' by Walter Isaacson.",
+    "stock": 9,
+    "created_at": "2026-03-11T19:24:45.966Z",
+    "updated_at": "2026-03-11T19:24:45.966Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 8,
+  "fields": {
+    "category": 7,
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "price": "16.49",
+    "description": "This is a sample description for 'Thinking, Fast and Slow' by Daniel Kahneman.",
+    "stock": 38,
+    "created_at": "2026-03-11T19:24:45.984Z",
+    "updated_at": "2026-03-11T19:24:45.984Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 9,
+  "fields": {
+    "category": 8,
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "price": "13.33",
+    "description": "This is a sample description for 'Dune' by Frank Herbert.",
+    "stock": 3,
+    "created_at": "2026-03-11T19:24:46.024Z",
+    "updated_at": "2026-03-11T19:24:46.024Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 10,
+  "fields": {
+    "category": 4,
+    "title": "1984",
+    "author": "George Orwell",
+    "price": "41.95",
+    "description": "This is a sample description for '1984' by George Orwell.",
+    "stock": 20,
+    "created_at": "2026-03-11T19:24:46.127Z",
+    "updated_at": "2026-03-11T19:24:46.127Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 11,
+  "fields": {
+    "category": 3,
+    "title": "Deep Learning",
+    "author": "Ian Goodfellow",
+    "price": "13.00",
+    "description": "This is a sample description for 'Deep Learning' by Ian Goodfellow.",
+    "stock": 44,
+    "created_at": "2026-03-11T19:24:46.230Z",
+    "updated_at": "2026-03-11T19:24:46.230Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 12,
+  "fields": {
+    "category": 5,
+    "title": "The Art of War",
+    "author": "Sun Tzu",
+    "price": "48.23",
+    "description": "This is a sample description for 'The Art of War' by Sun Tzu.",
+    "stock": 41,
+    "created_at": "2026-03-11T19:24:46.250Z",
+    "updated_at": "2026-03-11T19:24:46.250Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 13,
+  "fields": {
+    "category": 5,
+    "title": "Guns, Germs, and Steel",
+    "author": "Jared Diamond",
+    "price": "90.26",
+    "description": "This is a sample description for 'Guns, Germs, and Steel' by Jared Diamond.",
+    "stock": 46,
+    "created_at": "2026-03-11T19:24:46.262Z",
+    "updated_at": "2026-03-11T19:24:46.262Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 14,
+  "fields": {
+    "category": 5,
+    "title": "The Selfish Gene",
+    "author": "Richard Dawkins",
+    "price": "42.52",
+    "description": "This is a sample description for 'The Selfish Gene' by Richard Dawkins.",
+    "stock": 2,
+    "created_at": "2026-03-11T19:24:46.270Z",
+    "updated_at": "2026-03-11T19:24:46.270Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 15,
+  "fields": {
+    "category": 8,
+    "title": "The Innovators",
+    "author": "Tara Westover",
+    "price": "46.74",
+    "description": "This is a sample description for 'The Innovators' by Tara Westover.",
+    "stock": 32,
+    "created_at": "2026-03-11T19:24:46.277Z",
+    "updated_at": "2026-03-11T19:24:46.277Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 16,
+  "fields": {
+    "category": 6,
+    "title": "Educated",
+    "author": "Michelle Obama",
+    "price": "59.63",
+    "description": "This is a sample description for 'Educated' by Michelle Obama.",
+    "stock": 45,
+    "created_at": "2026-03-11T19:24:46.286Z",
+    "updated_at": "2026-03-11T19:24:46.286Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 17,
+  "fields": {
+    "category": 3,
+    "title": "Becoming",
+    "author": "Peter Thiel",
+    "price": "32.17",
+    "description": "This is a sample description for 'Becoming' by Peter Thiel.",
+    "stock": 3,
+    "created_at": "2026-03-11T19:24:46.294Z",
+    "updated_at": "2026-03-11T19:24:46.294Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 18,
+  "fields": {
+    "category": 3,
+    "title": "Zero to One",
+    "author": "Nir Eyal",
+    "price": "85.57",
+    "description": "This is a sample description for 'Zero to One' by Nir Eyal.",
+    "stock": 42,
+    "created_at": "2026-03-11T19:24:46.304Z",
+    "updated_at": "2026-03-11T19:24:46.304Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 19,
+  "fields": {
+    "category": 6,
+    "title": "Hooked",
+    "author": "Malcolm Gladwell",
+    "price": "88.57",
+    "description": "This is a sample description for 'Hooked' by Malcolm Gladwell.",
+    "stock": 22,
+    "created_at": "2026-03-11T19:24:46.314Z",
+    "updated_at": "2026-03-11T19:24:46.314Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 20,
+  "fields": {
+    "category": 5,
+    "title": "Blink",
+    "author": "Paulo Coelho",
+    "price": "36.90",
+    "description": "This is a sample description for 'Blink' by Paulo Coelho.",
+    "stock": 25,
+    "created_at": "2026-03-11T19:24:46.326Z",
+    "updated_at": "2026-03-11T19:24:46.326Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 21,
+  "fields": {
+    "category": 6,
+    "title": "Outliers",
+    "author": "Isaac Asimov",
+    "price": "27.61",
+    "description": "This is a sample description for 'Outliers' by Isaac Asimov.",
+    "stock": 3,
+    "created_at": "2026-03-11T19:24:46.342Z",
+    "updated_at": "2026-03-11T19:24:46.342Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 22,
+  "fields": {
+    "category": 6,
+    "title": "The Alchemist",
+    "author": "William Gibson",
+    "price": "47.88",
+    "description": "This is a sample description for 'The Alchemist' by William Gibson.",
+    "stock": 2,
+    "created_at": "2026-03-11T19:24:46.362Z",
+    "updated_at": "2026-03-11T19:24:46.362Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 23,
+  "fields": {
+    "category": 8,
+    "title": "Foundation",
+    "author": "Ernest Cline",
+    "price": "17.90",
+    "description": "This is a sample description for 'Foundation' by Ernest Cline.",
+    "stock": 33,
+    "created_at": "2026-03-11T19:24:46.391Z",
+    "updated_at": "2026-03-11T19:24:46.391Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 24,
+  "fields": {
+    "category": 7,
+    "title": "Neuromancer",
+    "author": "Neal Stephenson",
+    "price": "55.14",
+    "description": "This is a sample description for 'Neuromancer' by Neal Stephenson.",
+    "stock": 1,
+    "created_at": "2026-03-11T19:24:46.410Z",
+    "updated_at": "2026-03-11T19:24:46.410Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 25,
+  "fields": {
+    "category": 6,
+    "title": "Ready Player One",
+    "author": "F. Scott Fitzgerald",
+    "price": "87.13",
+    "description": "This is a sample description for 'Ready Player One' by F. Scott Fitzgerald.",
+    "stock": 18,
+    "created_at": "2026-03-11T19:24:46.426Z",
+    "updated_at": "2026-03-11T19:24:46.426Z"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 26,
+  "fields": {
+    "category": 7,
+    "title": "Snow Crash",
+    "author": "Robert C. Martin",
+    "price": "12.85",
+    "description": "This is a sample description for 'Snow Crash' by Robert C. Martin.",
+    "stock": 32,
+    "created_at": "2026-03-11T19:24:46.437Z",
+    "updated_at": "2026-03-11T19:24:46.437Z"
+  }
+}
+]

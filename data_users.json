@@ -1,0 +1,60 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$pDIiCIIuDXT6t0zoHxOR0C$GcZjlbhcSo1Yy8xOAHZ4V7EdT4uY/j17siNX4DIpKr4=",
+    "last_login": "2026-03-11T19:30:03.018Z",
+    "is_superuser": true,
+    "username": "vlados",
+    "first_name": "",
+    "last_name": "",
+    "email": "vladrudoy320@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-02-23T17:45:18.317Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$l9GLneJ3X1yKB0ziGpujlN$dxsDY5/0z/jlepeOT5KTw70ZVQOgITV0XpJ26NrM290=",
+    "last_login": "2026-03-18T20:50:39.756Z",
+    "is_superuser": true,
+    "username": "Vladislav",
+    "first_name": "",
+    "last_name": "",
+    "email": "vladrudoy320@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-18T20:42:30.303Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$9QzY2K9qznl4jBAIIJ88qg$J97uy7LJ7XN33FPt0qnP/Y9niJRLushrzunhN/oLemw=",
+    "last_login": "2026-03-18T20:45:43.507Z",
+    "is_superuser": false,
+    "username": "vlad",
+    "first_name": "",
+    "last_name": "",
+    "email": "vladislavukraine9627@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-18T20:45:42.480Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+}
+]
