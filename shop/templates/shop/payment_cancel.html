@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Оплату скасовано ❌</h1>
+<p>Ви скасували оплату. Ваш кошик збережено.</p>
+<a href="{% url 'shop:cart_detail' %}">Повернутись до кошика</a>
+{% endblock %}

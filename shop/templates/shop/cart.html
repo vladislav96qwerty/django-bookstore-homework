@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Кошик</h1>
+
+{% if cart|length == 0 %}
+  <p>Кошик порожній. <a href="{% url 'shop:book_list' %}">Перейти до книг</a></p>
+{% else %}
+  <table>
+    <thead>
+      <tr>
+        <th>Книга</th>
+        <th>Кількість</th>
+        <th>Ціна</th>
+        <th>Сума</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %}
+      <tr>
+        <td>{{ item.title }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>${{ item.price }}</td>
+        <td>${{ item.total_price }}</td>
+        <td>
+          <a href="{% url 'shop:cart_remove' item.book.id %}">Видалити</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p><strong>Разом: ${{ cart.get_total_price }}</strong></p>
+  <a href="{% url 'shop:checkout' %}">Оплатити через Stripe</a>
+{% endif %}
+{% endblock %}

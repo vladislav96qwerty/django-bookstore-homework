@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Оплата успішна! ✅</h1>
+<p>Дякуємо за покупку! Замовлення <strong>#{{ order.id }}</strong> підтверджено.</p>
+<p>Сума: <strong>${{ order.get_total_price }}</strong></p>
+<p>Лист підтвердження надіслано на вашу пошту.</p>
+<a href="{% url 'shop:book_list' %}">Повернутись до магазину</a>
+{% endblock %}
