@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Catalog" %} - Bookstore{% endblock %}
+
+{% block content %}
+<h1 class="display-6 fw-bold mb-4">{% trans "Catalog" %}</h1>
+
+{% for cat in catalog %}
+<div class="mb-5">
+    <h3 class="fw-bold border-bottom pb-2">{{ cat.name }}</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-3 mt-1">
+        {% for book in cat.books %}
+        <div class="col">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <h6 class="card-title fw-bold">{{ book.title }}</h6>
+                    <p class="text-muted small">{{ book.author }}</p>
+                    <span class="badge bg-success">${{ book.price }}</span>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="{% url 'shop:book_detail' book.id %}" class="btn btn-sm btn-outline-dark">
+                        {% trans "View Details" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-muted">{% trans "No books in this category." %}</p>
+        {% endfor %}
+    </div>
+</div>
+{% empty %}
+<p class="text-muted">{% trans "No categories found." %}</p>
+{% endfor %}
+{% endblock %}

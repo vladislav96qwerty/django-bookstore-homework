@@ -1,17 +1,19 @@
+{% comment %}── cart.html ──{% endcomment %}
 {% extends "base.html" %}
+{% load i18n %}
 {% block content %}
-<h1>Кошик</h1>
+<h1>{% trans "Cart" %}</h1>
 
 {% if cart|length == 0 %}
-  <p>Кошик порожній. <a href="{% url 'shop:book_list' %}">Перейти до книг</a></p>
+  <p>{% trans "Cart is empty." %} <a href="{% url 'shop:book_list' %}">{% trans "Back to books" %}</a></p>
 {% else %}
-  <table>
+  <table class="table">
     <thead>
       <tr>
-        <th>Книга</th>
-        <th>Кількість</th>
-        <th>Ціна</th>
-        <th>Сума</th>
+        <th>{% trans "Book" %}</th>
+        <th>{% trans "Quantity" %}</th>
+        <th>{% trans "Price" %}</th>
+        <th>{% trans "Total" %}</th>
         <th></th>
       </tr>
     </thead>
@@ -23,14 +25,16 @@
         <td>${{ item.price }}</td>
         <td>${{ item.total_price }}</td>
         <td>
-          <a href="{% url 'shop:cart_remove' item.book.id %}">Видалити</a>
+          <a href="{% url 'shop:cart_remove' item.book.id %}" class="btn btn-sm btn-danger">
+            {% trans "Remove" %}
+          </a>
         </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 
-  <p><strong>Разом: ${{ cart.get_total_price }}</strong></p>
-  <a href="{% url 'shop:checkout' %}">Оплатити через Stripe</a>
+  <p><strong>{% trans "Total" %}: ${{ cart.get_total_price }}</strong></p>
+  <a href="{% url 'shop:checkout' %}" class="btn btn-success">{% trans "Checkout" %}</a>
 {% endif %}
 {% endblock %}

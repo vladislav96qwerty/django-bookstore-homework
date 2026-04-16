@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Books - Bookstore{% endblock %}
+{% block title %}{% trans "Books Collection" %} - Bookstore{% endblock %}
 
 {% block content %}
 <div class="row mb-4 align-items-center">
     <div class="col-md-6">
-        <h1 class="display-6 fw-bold">Books Collection</h1>
+        <h1 class="display-6 fw-bold">{% trans "Books Collection" %}</h1>
     </div>
     <div class="col-md-6 text-md-end">
         <form method="get" class="d-flex">
-            <input class="form-control me-2" type="search" name="q" placeholder="Search by title or author"
-                aria-label="Search" value="{{ query }}">
-            <button class="btn btn-dark" type="submit">Search</button>
+            <input class="form-control me-2" type="search" name="q"
+                   placeholder="{% trans 'Search by title or author' %}"
+                   aria-label="{% trans 'Search' %}" value="{{ query }}">
+            <button class="btn btn-dark" type="submit">{% trans "Search" %}</button>
             {% if query %}
-            <a href="{% url 'shop:book_list' %}" class="btn btn-link link-dark">Clear</a>
+            <a href="{% url 'shop:book_list' %}" class="btn btn-link link-dark">{% trans "Clear" %}</a>
             {% endif %}
         </form>
     </div>
@@ -29,18 +31,20 @@
                 <p class="card-text text-truncate">{{ book.description|truncatewords:20 }}</p>
                 <div class="d-flex justify-content-between align-items-center mt-3">
                     <span class="badge bg-success font-monospace">${{ book.price }}</span>
-                    <a href="{% url 'shop:book_detail' book.pk %}" class="btn btn-sm btn-outline-dark">View Details</a>
+                    <a href="{% url 'shop:book_detail' book.pk %}" class="btn btn-sm btn-outline-dark">
+                        {% trans "View Details" %}
+                    </a>
                 </div>
             </div>
             <div class="card-footer bg-transparent border-0 text-muted small">
-                Updated: {{ book.updated_at|date:"M d, Y" }}
+                {% trans "Updated" %}: {{ book.updated_at|date:"M d, Y" }}
             </div>
         </div>
     </div>
     {% empty %}
     <div class="col-12 text-center py-5">
-        <p class="text-muted fs-4">No books found.</p>
-        <a href="{% url 'shop:book_create' %}" class="btn btn-dark">Add the first book</a>
+        <p class="text-muted fs-4">{% trans "No books found." %}</p>
+        <a href="{% url 'shop:book_create' %}" class="btn btn-dark">{% trans "Add the first book" %}</a>
     </div>
     {% endfor %}
 </div>
@@ -50,26 +54,27 @@
     <ul class="pagination justify-content-center">
         {% if page_obj.has_previous %}
         <li class="page-item">
-            <a class="page-link" href="?page=1{% if query %}&q={{ query }}{% endif %}">&laquo; First</a>
+            <a class="page-link" href="?page=1{% if query %}&q={{ query }}{% endif %}">&laquo; {% trans "First" %}</a>
         </li>
         <li class="page-item">
-            <a class="page-link"
-                href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">Previous</a>
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">
+                {% trans "Previous" %}
+            </a>
         </li>
         {% endif %}
-
         <li class="page-item active">
-            <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            <span class="page-link">{% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}</span>
         </li>
-
         {% if page_obj.has_next %}
         <li class="page-item">
-            <a class="page-link"
-                href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">Next</a>
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">
+                {% trans "Next" %}
+            </a>
         </li>
         <li class="page-item">
-            <a class="page-link"
-                href="?page={{ page_obj.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}">Last &raquo;</a>
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}">
+                {% trans "Last" %} &raquo;
+            </a>
         </li>
         {% endif %}
     </ul>

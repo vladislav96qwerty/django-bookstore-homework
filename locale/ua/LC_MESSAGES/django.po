@@ -1,0 +1,150 @@
+# Ukrainian translations for bookshop_project
+# Файл: locale/uk/LC_MESSAGES/django.po
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+
+msgid "Name"
+msgstr "Назва"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Category"
+msgstr "Категорія"
+
+msgid "Categories"
+msgstr "Категорії"
+
+msgid "Title"
+msgstr "Назва"
+
+msgid "Author"
+msgstr "Автор"
+
+msgid "Price"
+msgstr "Ціна"
+
+msgid "Description"
+msgstr "Опис"
+
+msgid "Stock"
+msgstr "Залишок"
+
+msgid "Created at"
+msgstr "Створено"
+
+msgid "Updated at"
+msgstr "Оновлено"
+
+msgid "Book"
+msgstr "Книга"
+
+msgid "Books"
+msgstr "Книги"
+
+msgid "Pending"
+msgstr "Очікує"
+
+msgid "Paid"
+msgstr "Оплачено"
+
+msgid "Cancelled"
+msgstr "Скасовано"
+
+msgid "User"
+msgstr "Користувач"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Stripe Session ID"
+msgstr "Stripe Session ID"
+
+msgid "Order"
+msgstr "Замовлення"
+
+msgid "Orders"
+msgstr "Замовлення"
+
+msgid "Order item"
+msgstr "Позиція замовлення"
+
+msgid "Order items"
+msgstr "Позиції замовлення"
+
+msgid "Quantity"
+msgstr "Кількість"
+
+msgid "Enter book title"
+msgstr "Введіть назву книги"
+
+msgid "Enter author name"
+msgstr "Введіть ім'я автора"
+
+msgid "Ukrainian"
+msgstr "Українська"
+
+msgid "English"
+msgstr "Англійська"
+
+msgid "Title is required."
+msgstr "Назва обов'язкова."
+
+msgid "Author is required."
+msgstr "Автор обов'язковий."
+
+msgid "Price is required."
+msgstr "Ціна обов'язкова."
+
+# ── Templates ────────────────────────────────────────────────
+
+msgid "Books Collection"
+msgstr "Колекція книг"
+
+msgid "Search by title or author"
+msgstr "Пошук за назвою або автором"
+
+msgid "Search"
+msgstr "Пошук"
+
+msgid "Clear"
+msgstr "Очистити"
+
+msgid "View Details"
+msgstr "Детальніше"
+
+msgid "No books found."
+msgstr "Книг не знайдено."
+
+msgid "Add the first book"
+msgstr "Додати першу книгу"
+
+msgid "Add to cart"
+msgstr "До кошика"
+
+msgid "Edit Book"
+msgstr "Редагувати"
+
+msgid "Delete"
+msgstr "Видалити"
+
+msgid "Back to List"
+msgstr "До списку"
+
+msgid "Cart"
+msgstr "Кошик"
+
+msgid "Cart is empty."
+msgstr "Кошик порожній."
+
+msgid "Checkout"
+msgstr "Оплатити"
+
+msgid "Payment successful!"
+msgstr "Оплата успішна!"
+
+msgid "Payment cancelled."
+msgstr "Оплату скасовано."

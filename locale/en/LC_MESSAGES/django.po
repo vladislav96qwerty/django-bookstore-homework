@@ -1,0 +1,148 @@
+# English translations for bookshop_project
+# Файл: locale/en/LC_MESSAGES/django.po
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Categories"
+msgstr "Categories"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Author"
+msgstr "Author"
+
+msgid "Price"
+msgstr "Price"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Stock"
+msgstr "Stock"
+
+msgid "Created at"
+msgstr "Created at"
+
+msgid "Updated at"
+msgstr "Updated at"
+
+msgid "Book"
+msgstr "Book"
+
+msgid "Books"
+msgstr "Books"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Paid"
+msgstr "Paid"
+
+msgid "Cancelled"
+msgstr "Cancelled"
+
+msgid "User"
+msgstr "User"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Stripe Session ID"
+msgstr "Stripe Session ID"
+
+msgid "Order"
+msgstr "Order"
+
+msgid "Orders"
+msgstr "Orders"
+
+msgid "Order item"
+msgstr "Order item"
+
+msgid "Order items"
+msgstr "Order items"
+
+msgid "Quantity"
+msgstr "Quantity"
+
+msgid "Enter book title"
+msgstr "Enter book title"
+
+msgid "Enter author name"
+msgstr "Enter author name"
+
+msgid "Ukrainian"
+msgstr "Ukrainian"
+
+msgid "English"
+msgstr "English"
+
+msgid "Title is required."
+msgstr "Title is required."
+
+msgid "Author is required."
+msgstr "Author is required."
+
+msgid "Price is required."
+msgstr "Price is required."
+
+msgid "Books Collection"
+msgstr "Books Collection"
+
+msgid "Search by title or author"
+msgstr "Search by title or author"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Clear"
+msgstr "Clear"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "No books found."
+msgstr "No books found."
+
+msgid "Add the first book"
+msgstr "Add the first book"
+
+msgid "Add to cart"
+msgstr "Add to cart"
+
+msgid "Edit Book"
+msgstr "Edit Book"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Back to List"
+msgstr "Back to List"
+
+msgid "Cart"
+msgstr "Cart"
+
+msgid "Cart is empty."
+msgstr "Cart is empty."
+
+msgid "Checkout"
+msgstr "Checkout"
+
+msgid "Payment successful!"
+msgstr "Payment successful!"
+
+msgid "Payment cancelled."
+msgstr "Payment cancelled."

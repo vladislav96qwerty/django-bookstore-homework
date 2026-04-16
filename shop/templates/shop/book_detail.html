@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
 {% block title %}{{ book.title }} - Bookstore{% endblock %}
+
 {% block content %}
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'shop:book_list' %}" class="text-dark">Books</a></li>
+        <li class="breadcrumb-item">
+            <a href="{% url 'shop:book_list' %}" class="text-dark">{% trans "Books" %}</a>
+        </li>
         <li class="breadcrumb-item active" aria-current="page">{{ book.title }}</li>
     </ol>
 </nav>
+
 <div class="row justify-content-center">
     <div class="col-lg-8">
         <div class="card shadow-sm border-0">
@@ -18,23 +24,37 @@
                     </div>
                     <div class="text-end">
                         <span class="badge bg-success fs-5 p-2 px-3">${{ book.price }}</span>
-                        <p class="text-muted mt-2 small">Stock: {{ book.stock }} units</p>
+                        <p class="text-muted mt-2 small">{% trans "Stock" %}: {{ book.stock }}</p>
                     </div>
                 </div>
                 <hr>
                 <div class="mb-4">
-                    <h5 class="fw-bold">Description</h5>
-                    <p class="text-secondary" style="white-space: pre-wrap;">{{ book.description|default:"No description available." }}</p>
+                    <h5 class="fw-bold">{% trans "Description" %}</h5>
+                    <p class="text-secondary" style="white-space: pre-wrap;">
+                        {{ book.description|default:_("No description available.") }}
+                    </p>
                 </div>
                 <div class="mb-4">
-                    <p class="text-muted small mb-0"><strong>Category:</strong> {{ book.category.name }}</p>
-                    <p class="text-muted small"><strong>Published:</strong> {{ book.created_at|date:"F d, Y" }}</p>
+                    <p class="text-muted small mb-0">
+                        <strong>{% trans "Category" %}:</strong> {{ book.category.name }}
+                    </p>
+                    <p class="text-muted small">
+                        <strong>{% trans "Published" %}:</strong> {{ book.created_at|date:"F d, Y" }}
+                    </p>
                 </div>
                 <div class="d-flex gap-2">
-                    <a href="{% url 'shop:cart_add' book.pk %}" class="btn btn-success">В кошик</a>
-                    <a href="{% url 'shop:book_update' book.pk %}" class="btn btn-warning">Edit Book</a>
-                    <a href="{% url 'shop:book_delete' book.pk %}" class="btn btn-danger">Delete</a>
-                    <a href="{% url 'shop:book_list' %}" class="btn btn-outline-dark ms-auto">Back to List</a>
+                    <a href="{% url 'shop:cart_add' book.pk %}" class="btn btn-success">
+                        {% trans "Add to cart" %}
+                    </a>
+                    <a href="{% url 'shop:book_update' book.pk %}" class="btn btn-warning">
+                        {% trans "Edit Book" %}
+                    </a>
+                    <a href="{% url 'shop:book_delete' book.pk %}" class="btn btn-danger">
+                        {% trans "Delete" %}
+                    </a>
+                    <a href="{% url 'shop:book_list' %}" class="btn btn-outline-dark ms-auto">
+                        {% trans "Back to List" %}
+                    </a>
                 </div>
             </div>
         </div>
