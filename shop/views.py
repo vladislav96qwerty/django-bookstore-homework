@@ -19,7 +19,8 @@ from .cart import Cart
 from .forms import BookForm
 from .models import Book, Order, OrderItem, Category
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+if hasattr(settings, 'STRIPE_SECRET_KEY'):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 # ─── Книги (sync CBV) ─────────────────────────────────────────────────────────
@@ -29,6 +30,14 @@ class BookListView(ListView):
     template_name = 'shop/book_list.html'
     context_object_name = 'books'
     paginate_by = 10
+
+    def get(self, request, *args, **kwargs):
+        lang = request.GET.get('language')
+        if lang in ['uk', 'en']:
+            from django.utils import translation
+            translation.activate(lang)
+            request.session[translation.LANGUAGE_SESSION_KEY] = lang
+        return super().get(request, *args, **kwargs)
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -79,13 +88,11 @@ class BookDeleteView(PermissionRequiredMixin, DeleteView):
 
 # ─── Кошик (sync) ─────────────────────────────────────────────────────────────
 
-@login_required
 def cart_detail(request):
     cart = Cart(request)
     return render(request, 'shop/cart.html', {'cart': cart})
 
 
-@login_required
 def cart_add(request, book_id):
     cart = Cart(request)
     book = get_object_or_404(Book, id=book_id)
@@ -93,7 +100,6 @@ def cart_add(request, book_id):
     return redirect('shop:cart_detail')
 
 
-@login_required
 def cart_remove(request, book_id):
     cart = Cart(request)
     book = get_object_or_404(Book, id=book_id)

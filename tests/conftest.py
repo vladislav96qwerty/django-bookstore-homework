@@ -1,15 +1,18 @@
+import os
+import sys
+
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bookstore.settings_sqlite')
+
+import django
+django.setup()
+
 import pytest
 from django.contrib.auth.models import User
 from shop.models import Category, Book, Order, OrderItem
-
-
-# ──────────────────────────────────────────────────────────────
-# pytest.ini  (або pyproject.toml) — додай у корінь проєкту:
-#
-# [pytest]
-# DJANGO_SETTINGS_MODULE = bookstore.settings_sqlite
-# python_files = tests/*.py tests/**/*.py
-# ──────────────────────────────────────────────────────────────
 
 
 @pytest.fixture
@@ -23,7 +26,7 @@ def book(db, category):
         category=category,
         title="Test Book",
         author="Test Author",
-        price="19.99",
+        price=19.99,
         stock=10,
         description="A test description.",
     )

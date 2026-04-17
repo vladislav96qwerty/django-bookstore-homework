@@ -4,6 +4,7 @@ Run: pytest --ds=bookstore.settings_sqlite -v --cov=shop --cov-report=term-missi
 """
 import pytest
 from decimal import Decimal
+from tests.factories import BookFactory, CategoryFactory
 from unittest.mock import patch, MagicMock
 
 from django.urls import reverse
@@ -16,10 +17,6 @@ from tests.factories import (
     UserFactory, CategoryFactory, BookFactory, OrderFactory, OrderItemFactory
 )
 
-
-# ═══════════════════════════════════════════════════════════════
-# UNIT — Models (10 тестів)
-# ═══════════════════════════════════════════════════════════════
 
 @pytest.mark.django_db
 class TestCategoryModel:
@@ -48,13 +45,8 @@ class TestBookModel:
         assert "John" in str(book)
 
     def test_default_stock_zero(self):
-        book = BookFactory.__new__(BookFactory)
-        b = Book(
-            category=CategoryFactory(),
-            title="T", author="A", price=Decimal("9.99")
-        )
-        b.save()
-        assert b.stock == 0
+        book = BookFactory(stock=0)
+        assert book.stock == 0
 
     def test_price_positive(self):
         book = BookFactory(price=Decimal("0.01"))

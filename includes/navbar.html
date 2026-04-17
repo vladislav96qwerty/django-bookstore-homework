@@ -1,4 +1,4 @@
-﻿{% load i18n %}
+{% load i18n %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{% url 'shop:book_list' %}">{% trans "BookStore" %}</a>
@@ -13,15 +13,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'shop:catalog' %}">
-                        📚 {% trans "Catalog" %}
-                    </a>
-                </li>
-                <li class="nav-item">
                     <form action="{% url 'set_language' %}" method="post" class="d-inline">
                         {% csrf_token %}
                         <input name="next" type="hidden" value="{{ request.get_full_path }}">
-                        <select name="language" onchange="this.form.submit()" class="form-select form-select-sm bg-dark text-white border-secondary" style="width: auto;">
+                        <select name="language" onchange="this.form.submit()" class="form-select form-select-sm bg-dark text-white border-secondary">
                             <option value="uk" {% if LANGUAGE_CODE == 'uk' %}selected{% endif %}>🇺🇦 UA</option>
                             <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>🇬🇧 EN</option>
                         </select>

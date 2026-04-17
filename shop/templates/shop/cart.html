@@ -1,6 +1,6 @@
-{% comment %}── cart.html ──{% endcomment %}
 {% extends "base.html" %}
 {% load i18n %}
+
 {% block content %}
 <h1>{% trans "Cart" %}</h1>
 
@@ -20,7 +20,7 @@
     <tbody>
       {% for item in cart %}
       <tr>
-        <td>{{ item.title }}</td>
+        <td>{{ item.book.title }}</td>  <!-- Исправлено: item.book.title -->
         <td>{{ item.quantity }}</td>
         <td>${{ item.price }}</td>
         <td>${{ item.total_price }}</td>
