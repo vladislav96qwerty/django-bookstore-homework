@@ -11,6 +11,7 @@ import django
 django.setup()
 
 import pytest
+from decimal import Decimal
 from django.contrib.auth.models import User
 from shop.models import Category, Book, Order, OrderItem
 
@@ -26,7 +27,7 @@ def book(db, category):
         category=category,
         title="Test Book",
         author="Test Author",
-        price=19.99,
+        price=Decimal("19.99"),
         stock=10,
         description="A test description.",
     )
