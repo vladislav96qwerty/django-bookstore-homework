@@ -324,3 +324,32 @@ def stripe_webhook(request):
         Order.objects.filter(stripe_session_id=session['id']).update(status='paid')
 
     return HttpResponse(status=200)
+
+# ── Health Check ──────────────────────────────────────────────────────────────
+from django.db import connections
+from django.db.utils import OperationalError
+
+
+def health_check(request):
+    status = {'status': 'ok', 'database': 'ok', 'cache': 'ok'}
+    http_status = 200
+
+    try:
+        connections['default'].ensure_connection()
+    except OperationalError:
+        status['database'] = 'unavailable'
+        status['status'] = 'error'
+        http_status = 503
+
+    try:
+        from django.core.cache import cache
+        cache.set('health_check', 'ok', timeout=5)
+        result = cache.get('health_check')
+        if result != 'ok':
+            raise Exception('Cache read failed')
+    except Exception:
+        status['cache'] = 'unavailable'
+        status['status'] = 'error'
+        http_status = 503
+
+    return JsonResponse(status, status=http_status)
