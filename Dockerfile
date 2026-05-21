@@ -13,4 +13,4 @@ COPY . /app
 
 EXPOSE 8000
 
-CMD ["gunicorn", "-c", "gunicorn_conf.py", "bookstore.wsgi:application"]
+CMD sh -c "python manage.py migrate --noinput && gunicorn bookstore.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
