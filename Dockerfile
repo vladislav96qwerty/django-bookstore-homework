@@ -11,5 +11,6 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 COPY . /app
 
-# docker-entrypoint.sh більше не потрібен — команда задається у docker-compose
-RUN chmod +x /app/docker-entrypoint.sh || true
+EXPOSE 8000
+
+CMD ["gunicorn", "-c", "gunicorn_conf.py", "bookstore.wsgi:application"]
