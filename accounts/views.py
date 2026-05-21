@@ -34,4 +34,3 @@ def profile_view(request):
     if not request.user.is_authenticated:
         return redirect("accounts:login")
     return render(request, "accounts/profile.html")
-

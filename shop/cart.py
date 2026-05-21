@@ -1,7 +1,7 @@
 from decimal import Decimal
 from shop.models import Book
 
-CART_SESSION_KEY = 'cart'
+CART_SESSION_KEY = "cart"
 
 
 class Cart:
@@ -16,11 +16,11 @@ class Cart:
         book_id = str(book.id)
         if book_id not in self.cart:
             self.cart[book_id] = {
-                'quantity': 0,
-                'price': str(book.price),
-                'title': book.title,
+                "quantity": 0,
+                "price": str(book.price),
+                "title": book.title,
             }
-        self.cart[book_id]['quantity'] += quantity
+        self.cart[book_id]["quantity"] += quantity
         self.save()
 
     def remove(self, book):
@@ -41,13 +41,13 @@ class Cart:
         books = Book.objects.filter(id__in=book_ids)
         cart = self.cart.copy()
         for book in books:
-            cart[str(book.id)]['book'] = book
+            cart[str(book.id)]["book"] = book
         for item in cart.values():
-            item['total_price'] = Decimal(item['price']) * item['quantity']
+            item["total_price"] = Decimal(item["price"]) * item["quantity"]
             yield item
 
     def __len__(self):
-        return sum(item['quantity'] for item in self.cart.values())
+        return sum(item["quantity"] for item in self.cart.values())
 
     def get_total_price(self):
-        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+        return sum(Decimal(item["price"]) * item["quantity"] for item in self.cart.values())

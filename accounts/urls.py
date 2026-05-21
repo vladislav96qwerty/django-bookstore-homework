@@ -20,4 +20,3 @@ urlpatterns = [
     path("me/", views.profile_view, name="profile"),
     path("me/edit/", views.ProfileUpdateView.as_view(), name="profile_edit"),
 ]
-

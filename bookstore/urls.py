@@ -1,6 +1,7 @@
 """
 bookstore/urls.py — головний роутер проекту.
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from django.views.i18n import set_language
@@ -18,25 +19,20 @@ from shop.views import health_check
 
 urlpatterns = [
     # ── Health check (для Railway/Render/Heroku) ───────────────────────────
-    path('health/', health_check, name='health_check'),
-
-    path('admin/', admin.site.urls),
-    path('set-language/', set_language, name='set_language'),
-    path('accounts/', include('accounts.urls')),
-
+    path("health/", health_check, name="health_check"),
+    path("admin/", admin.site.urls),
+    path("set-language/", set_language, name="set_language"),
+    path("accounts/", include("accounts.urls")),
     # ── REST API ───────────────────────────────────────────────────────────
-    path('api/', include('shop.api.urls')),
-
+    path("api/", include("shop.api.urls")),
     # ── JWT Auth ───────────────────────────────────────────────────────────
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
-
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
     # ── API Documentation ──────────────────────────────────────────────────
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-    path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
-
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
+    path("api/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
     # ── Shop views ─────────────────────────────────────────────────────────
-    path('', include('shop.urls')),
+    path("", include("shop.urls")),
 ]

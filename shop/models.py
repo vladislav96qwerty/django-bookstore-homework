@@ -59,50 +59,40 @@ class Book(models.Model):
 
 class Order(models.Model):
     STATUS_CHOICES = [
-        ('pending',   _('Pending')),
-        ('paid',      _('Paid')),
-        ('cancelled', _('Cancelled')),
+        ("pending", _("Pending")),
+        ("paid", _("Paid")),
+        ("cancelled", _("Cancelled")),
     ]
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='orders', verbose_name=_('User')
-    )
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('Created at'))
-    updated_at = models.DateTimeField(auto_now=True, verbose_name=_('Updated at'))
-    status = models.CharField(
-        max_length=20, choices=STATUS_CHOICES, default='pending', verbose_name=_('Status')
-    )
-    stripe_session_id = models.CharField(
-        max_length=255, blank=True, verbose_name=_('Stripe Session ID')
-    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders", verbose_name=_("User"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending", verbose_name=_("Status"))
+    stripe_session_id = models.CharField(max_length=255, blank=True, verbose_name=_("Stripe Session ID"))
 
     class Meta:
-        verbose_name = _('Order')
-        verbose_name_plural = _('Orders')
-        ordering = ['-created_at']
+        verbose_name = _("Order")
+        verbose_name_plural = _("Orders")
+        ordering = ["-created_at"]
 
     def __str__(self):
-        return f'Order #{self.id} — {self.user}'
+        return f"Order #{self.id} — {self.user}"
 
     def get_total_price(self):
         return sum(item.get_total_price() for item in self.items.all())
 
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(
-        Order, on_delete=models.CASCADE, related_name='items', verbose_name=_('Order')
-    )
-    book = models.ForeignKey(Book, on_delete=models.CASCADE, verbose_name=_('Book'))
-    quantity = models.PositiveIntegerField(default=1, verbose_name=_('Quantity'))
-    price = models.DecimalField(
-        max_digits=10, decimal_places=2, verbose_name=_('Price')
-    )
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items", verbose_name=_("Order"))
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, verbose_name=_("Book"))
+    quantity = models.PositiveIntegerField(default=1, verbose_name=_("Quantity"))
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Price"))
 
     class Meta:
-        verbose_name = _('Order item')
-        verbose_name_plural = _('Order items')
+        verbose_name = _("Order item")
+        verbose_name_plural = _("Order items")
 
     def __str__(self):
-        return f'{self.book.title} x {self.quantity}'
+        return f"{self.book.title} x {self.quantity}"
 
     def get_total_price(self):
         return self.price * self.quantity

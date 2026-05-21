@@ -19,9 +19,7 @@ def books_by_category_slug(slug: str):
 
 def books_python_or_tolkien():
     """Пример Q-объектов: title содержит 'python' ИЛИ author содержит 'tolkien'."""
-    return Book.objects.filter(
-        Q(title__icontains="python") | Q(author__icontains="tolkien")
-    )
+    return Book.objects.filter(Q(title__icontains="python") | Q(author__icontains="tolkien"))
 
 
 def categories_with_total_books():

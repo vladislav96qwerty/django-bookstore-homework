@@ -17,11 +17,11 @@ from django.urls import reverse
 from shop.models import Book, Category, Order, OrderItem
 from accounts.models import Profile
 
-
 # ══════════════════════════════════════════════════════════════════════════════
 # CATEGORY MODEL TESTS
 # Generated with AI, reviewed and modified
 # ══════════════════════════════════════════════════════════════════════════════
+
 
 @pytest.mark.django_db
 class TestCategoryModel:
@@ -44,6 +44,7 @@ class TestCategoryModel:
     def test_category_name_unique(self, category, db):
         # Generated with AI, reviewed and modified
         import pytest as _pytest
+
         with _pytest.raises(Exception):
             Category.objects.create(name="Fiction", slug="fiction-2")
 
@@ -74,6 +75,7 @@ class TestCategoryModel:
 # Generated with AI, reviewed and modified
 # ══════════════════════════════════════════════════════════════════════════════
 
+
 @pytest.mark.django_db
 class TestBookModel:
     """Tests for the Book model — fields, relations, and string repr."""
@@ -88,9 +90,7 @@ class TestBookModel:
 
     def test_book_stock_default(self, category, db):
         # Generated with AI, reviewed and modified
-        b = Book.objects.create(
-            category=category, title="No Stock Book", author="A", price=Decimal("5.00")
-        )
+        b = Book.objects.create(category=category, title="No Stock Book", author="A", price=Decimal("5.00"))
         assert b.stock == 0
 
     def test_book_category_relation(self, book, category):
@@ -115,17 +115,14 @@ class TestBookModel:
 
     def test_book_description_blank_allowed(self, category, db):
         # Generated with AI, reviewed and modified
-        b = Book.objects.create(
-            category=category, title="No Desc", author="A", price=Decimal("1.00"), description=""
-        )
+        b = Book.objects.create(category=category, title="No Desc", author="A", price=Decimal("1.00"), description="")
         assert b.description == ""
 
     def test_book_price_non_negative_validator(self, category, db):
         # Generated with AI, reviewed and modified
         from django.core.exceptions import ValidationError
-        b = Book(
-            category=category, title="Bad Book", author="A", price=Decimal("-1.00"), stock=0
-        )
+
+        b = Book(category=category, title="Bad Book", author="A", price=Decimal("-1.00"), stock=0)
         with pytest.raises(ValidationError):
             b.full_clean()
 
@@ -138,6 +135,7 @@ class TestBookModel:
 # ORDER MODEL TESTS
 # Generated with AI, reviewed and modified
 # ══════════════════════════════════════════════════════════════════════════════
+
 
 @pytest.mark.django_db
 class TestOrderModel:
@@ -212,6 +210,7 @@ class TestOrderModel:
 # Generated with AI, reviewed and modified
 # ══════════════════════════════════════════════════════════════════════════════
 
+
 @pytest.mark.django_db
 class TestProfileModel:
     """Tests for the Profile model — one-to-one relation and string repr."""
@@ -269,6 +268,7 @@ class TestProfileModel:
 # SHOP VIEWS TESTS
 # Generated with AI, reviewed and modified
 # ══════════════════════════════════════════════════════════════════════════════
+
 
 @pytest.mark.django_db
 class TestBookListView:
@@ -404,6 +404,7 @@ class TestCheckoutAndPaymentViews:
 # Generated with AI, reviewed and modified
 # ══════════════════════════════════════════════════════════════════════════════
 
+
 @pytest.mark.django_db
 class TestRegisterView:
     """HTTP tests for the user registration view."""
@@ -483,6 +484,7 @@ class TestProfileView:
 # Generated with AI, reviewed and modified
 # ══════════════════════════════════════════════════════════════════════════════
 
+
 @pytest.mark.django_db
 class TestAsyncViews:
     """HTTP tests for async JSON API endpoints."""
@@ -526,5 +528,3 @@ class TestAsyncViews:
         assert "title" in data
         assert "price" in data
         assert "author" in data
-
-    

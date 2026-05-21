@@ -1,13 +1,13 @@
 import os
 import sys
 
-
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bookstore.settings_sqlite')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bookstore.settings_sqlite")
 
 import django
+
 django.setup()
 
 import pytest

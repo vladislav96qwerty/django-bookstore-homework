@@ -58,4 +58,3 @@ def ensure_default_groups_and_permissions(sender, **kwargs):
         admin_group.permissions.set(admin_perms)
     if user_perms:
         user_group.permissions.set(user_perms)
-
